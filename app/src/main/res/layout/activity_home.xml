@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.HomeActivity">
+
+        <Button
+            android:id="@+id/movie_btn"
+            style="@style/buttonStyle"
+            android:text="@string/movie"
+            app:layout_constraintBottom_toTopOf="@+id/tvShows_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/tvShows_btn"
+            style="@style/buttonStyle"
+            android:text="@string/tv_shows"
+            app:layout_constraintBottom_toTopOf="@+id/artist_btn"
+            app:layout_constraintEnd_toEndOf="@+id/movie_btn"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/movie_btn"
+            app:layout_constraintTop_toBottomOf="@+id/movie_btn" />
+
+        <Button
+            android:id="@+id/artist_btn"
+            style="@style/buttonStyle"
+            android:text="@string/artists"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvShows_btn"
+            app:layout_constraintStart_toStartOf="@+id/tvShows_btn"
+            app:layout_constraintTop_toBottomOf="@+id/tvShows_btn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
