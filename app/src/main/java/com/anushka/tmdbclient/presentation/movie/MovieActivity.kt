@@ -3,9 +3,12 @@ package com.anushka.tmdbclient.presentation.movie
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.anushka.tmdbclient.R
 import com.anushka.tmdbclient.databinding.ActivityMovieBinding
 import com.anushka.tmdbclient.presentation.di.core.Injector
@@ -16,6 +19,7 @@ class MovieActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMovieBinding
     private lateinit var movieViewModel: MovieViewModel
+    private lateinit var adapter: MovieAdapter
 
     @Inject
     lateinit var factory: MovieViewModelFactory
@@ -25,9 +29,32 @@ class MovieActivity : AppCompatActivity() {
         (application as Injector).createMovieSubComponent().inject(this)
 
         movieViewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
+        initRecyclerView()
+
+    }
+
+    private fun initRecyclerView() {
+        binding.movieRecyclerView.layoutManager = LinearLayoutManager(this)
+        adapter = MovieAdapter()
+        binding.movieRecyclerView.adapter = adapter
+        displayPopularMovies()
+    }
+
+    fun displayPopularMovies() {
+        binding.movieProgressBar.visibility = View.VISIBLE
         val responseLiveData = movieViewModel.getMovies()
         responseLiveData.observe(this, Observer {
-            Log.i(TAG, "onCreate: ${it.toString()}")
+            if (it != null) {
+                adapter.apply {
+                    //setMovieList(it)
+                    notifyDataSetChanged()
+                    binding.movieProgressBar.visibility = View.GONE
+                }
+            } else {
+                binding.movieProgressBar.visibility = View.GONE
+                Toast.makeText(this, "No data available", Toast.LENGTH_SHORT).show()
+            }
         })
     }
+
 }
