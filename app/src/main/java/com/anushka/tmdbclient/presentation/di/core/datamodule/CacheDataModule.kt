@@ -1,4 +1,4 @@
-package com.anushka.tmdbclient.presentation.di.core
+package com.anushka.tmdbclient.presentation.di.core.datamodule
 
 import com.anushka.tmdbclient.data.db.ArtistDao
 import com.anushka.tmdbclient.data.db.MovieDao

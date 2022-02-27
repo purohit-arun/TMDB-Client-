@@ -21,7 +21,7 @@ class NetModule(private val baseUrl: String) {
 
     @Singleton
     @Provides
-    fun provideRMDBService(retrofit: Retrofit): TMDBService {
+    fun provideTMDBService(retrofit: Retrofit): TMDBService {
         return retrofit.create(TMDBService::class.java)
     }
 }

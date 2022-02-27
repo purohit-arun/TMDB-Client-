@@ -8,7 +8,7 @@ import dagger.Subcomponent
 @TvShowScope
 @Subcomponent(modules = [TvShowModule::class])
 interface TvShowSubComponent {
-    @Provides
+
     fun inject(tvShowActivity: TvShowActivity)
 
 

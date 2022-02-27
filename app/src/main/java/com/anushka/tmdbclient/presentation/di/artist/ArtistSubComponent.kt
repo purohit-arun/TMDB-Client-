@@ -7,13 +7,12 @@ import dagger.Subcomponent
 @ArtistScope
 @Subcomponent(modules = [ArtistModule::class])
 interface ArtistSubComponent {
-    @Provides
     fun inject(artistActivity: ArtistActivity)
 
 
     @Subcomponent.Factory
-    interface Factory{
-        fun create():ArtistSubComponent
+    interface Factory {
+        fun create(): ArtistSubComponent
     }
 
 }

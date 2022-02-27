@@ -13,7 +13,9 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
-        buildConfigField "String", "API_KEY", "\"f60ae473c8d03fdd88e75848cea96a8e\""
+        buildConfigField "String", "API_KEY", "\"a525c93957c367b99104b10731e5917f\""
+        buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/\""
+
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 

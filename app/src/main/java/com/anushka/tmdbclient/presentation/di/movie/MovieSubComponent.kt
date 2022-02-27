@@ -7,7 +7,7 @@ import dagger.Subcomponent
 @MovieScope
 @Subcomponent(modules = [MovieModule::class])
 interface MovieSubComponent {
-    @Provides
+
     fun inject(movieActivity: MovieActivity)
 
 

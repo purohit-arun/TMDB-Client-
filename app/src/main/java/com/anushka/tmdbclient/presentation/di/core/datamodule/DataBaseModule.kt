@@ -1,4 +1,4 @@
-package com.anushka.tmdbclient.presentation.di.core
+package com.anushka.tmdbclient.presentation.di.core.datamodule
 
 import android.content.Context
 import androidx.room.Room

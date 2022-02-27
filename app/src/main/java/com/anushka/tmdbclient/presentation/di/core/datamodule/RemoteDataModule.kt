@@ -1,4 +1,4 @@
-package com.anushka.tmdbclient.presentation.di.core
+package com.anushka.tmdbclient.presentation.di.core.datamodule
 
 import com.anushka.tmdbclient.data.api.TMDBService
 import com.anushka.tmdbclient.data.repository.artist.datasource.ArtistRemoteDataSource
