@@ -4,8 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.anushka.tmdbclient.domain.use_cases.tvshow_usecases.GetTvShowsUsecase
 import com.anushka.tmdbclient.domain.use_cases.tvshow_usecases.UpdateTvShowsUsecase
+import javax.inject.Inject
 
-class TvShowViewModelFactory(
+class TvShowViewModelFactory @Inject constructor(
     private val getTvShowsUsecase: GetTvShowsUsecase,
     private val updateTvShowsUsecase: UpdateTvShowsUsecase
 ) : ViewModelProvider.Factory {

@@ -1,20 +1,20 @@
-package com.anushka.tmdbclient.presentation.movie
+package com.anushka.tmdbclient.presentation.tv
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.anushka.tmdbclient.R
-import com.anushka.tmdbclient.data.model.movie.Movie
+import com.anushka.tmdbclient.data.model.tvshow.TvShow
 import com.anushka.tmdbclient.databinding.ListItemBinding
 import com.bumptech.glide.Glide
 
-class MovieAdapter : RecyclerView.Adapter<MyViewHolder>() {
-    private val movieList = ArrayList<Movie>()
+class TvShowAdapter : RecyclerView.Adapter<MyViewHolder>() {
+    private val tvShowList = ArrayList<TvShow>()
 
-    fun setMovieList(movies: List<Movie>) {
-        movieList.clear()
-        movieList.addAll(movies)
+    fun setTvShowList(tvShow: List<TvShow>) {
+        tvShowList.clear()
+        tvShowList.addAll(tvShow)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -30,23 +30,23 @@ class MovieAdapter : RecyclerView.Adapter<MyViewHolder>() {
 
 
     override fun getItemCount(): Int {
-        return movieList.size
+        return tvShowList.size
     }
 
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(movieList[position])
+        holder.bind(tvShowList[position])
     }
 }
 
 class MyViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(movie: Movie) {
-        val postePath = "https://image.tmdb.org/t/p/w500" + movie.posterPath
+    fun bind(tvShow: TvShow) {
+        val posterPath = "https://image.tmdb.org/t/p/w500" + tvShow.posterPath
         binding.apply {
-            titleTextView.text = movie.title
-            descriptionTextView.text = movie.overview
-            Glide.with(imageView.context).load(postePath).into(imageView)
+            titleTextView.text = tvShow.name
+            descriptionTextView.text = tvShow.overview
+            Glide.with(imageView.context).load(posterPath).into(imageView)
         }
 
     }
